@@ -263,10 +263,6 @@ Devise.setup do |config|
     if provider_name == :developer
       config.omniauth :developer
     else
-      p '*********************************'
-      p ENV["#{provider_name.upcase}_KEY"]
-      p ENV["#{provider_name.upcase}_SECRET"]
-      p '*********************************'
       api_key = ENV["#{provider_name.upcase}_KEY"]
       api_secret = ENV["#{provider_name.upcase}_SECRET"]
       config.omniauth provider_name, api_key, api_secret, callback_url: "http://localhost:3000/users/auth/#{provider_name.to_s.downcase}/callback"

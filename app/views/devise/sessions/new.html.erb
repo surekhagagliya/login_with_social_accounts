@@ -1,13 +1,40 @@
-<div class="signin-container">
-  <h2>Sign in with</h2>
+<div class="signin-container login-form">
+    <form>
+        <h2>Sign in with</h2>
+        <%- if devise_mapping.omniauthable? %>
+            <ul class="image-list signin-icons">
+            <%- resource_class.omniauth_providers.each do |provider| %>
+                <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => "Sign in with #{provider.to_s.titleize}" do %>
+                <%= image_tag "oauth_#{provider}.png", :alt => "Sign in with #{provider.to_s.titleize}", width: 40 %><% end -%>
+                </li>
+            <% end %>
+            </ul>
+        <% end -%>
+        <div class="or-seperator"><i>or</i></div>
+        <%= form_for(resource, as: resource_name, url: new_user_session_path(resource_name)) do |f| %>
+            <div class="form-group">
+                <div class="input-group">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "enter email" %>
+                </div>
+            </div>
 
-  <%- if devise_mapping.omniauthable? %>
-    <ul class="image-list signin-icons">
-      <%- resource_class.omniauth_providers.each do |provider| %>
-        <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => "Sign in with #{provider.to_s.titleize}" do %>
-          <%= image_tag "oauth_#{provider}.png", :alt => "Sign in with #{provider.to_s.titleize}", width: 40 %><% end -%>
-        </li>
-      <% end %>
-    </ul>
-  <% end -%>
+            <div class="form-group">
+                <div class="input-group">
+                    <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder: "enter password" %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.submit "Log in", type:"submit", class:"btn btn-success btn-block login-btn" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+                <div class="clearfix">
+                    <label class="pull-left checkbox-inline">
+                    <input type="checkbox"> Remember me</label>
+                </div> 
+            <% end %>
+
+        <% end %>
+    </form>
 </div>

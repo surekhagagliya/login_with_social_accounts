@@ -11,10 +11,9 @@
 
   <body>
     <div class="container">
-      <%= render partial: 'layouts/navbar' %>
-      <%= render partial: 'layouts/msg' %>
-      <%= yield %><br>
-      <%= render partial: 'layouts/footer' %>
+      <div class="signin-container">
+        <%= render partial: 'layouts/msg'%>
+        <%= yield %><br>
       </div>
     </div>
   </body>

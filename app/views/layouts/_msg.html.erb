@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+    <% if flash.present? %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <% flash.each do |name, msg| %>
+                <h4 class="flash"><%= msg %></h4>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <% end %>
+        </div>
+    <% end %>
+<% else %>
+    <% if flash.present? %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <% flash.each do |name, msg| %>
+                <h4 class="flash"><%= msg %></h4>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <% end %>
+        </div>
+    <% end %>
+<% end %>
