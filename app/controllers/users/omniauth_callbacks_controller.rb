@@ -27,6 +27,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in_with "Github"
   end
 
+  def pinterest
+    sign_in_with "Pinterest"
+  end
+
+  def instagram
+    sign_in_with "Instagram"
+  end
+
   def developer
     sign_in_with "Developer"
   end

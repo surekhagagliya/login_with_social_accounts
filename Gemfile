@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
 # User account management
 gem 'devise'
 gem 'omniauth'
@@ -23,6 +24,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
+gem 'omniauth-pinterest'
+gem 'omniauth-instagram'
+
 # To manage environment variables locally
 gem 'dotenv-rails', groups: [:development, :test, :production]
 
